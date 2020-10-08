@@ -1,0 +1,1 @@
+SELECT fullname, coalesce(round((100 - (SELECT SUM(amount) FROM transactions WHERE transactions.from_person_id = persons.id) + (SELECT SUM(amount) FROM transactions WHERE transactions.to_person_id = persons.id)), 2),100) as balance FROM `persons` WHERE 1
